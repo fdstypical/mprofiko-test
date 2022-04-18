@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 
 import EmptyLayout from "@/layouts/EmptyLayout.vue";
-import Home from "../views/Home.vue";
+import BaseLayout from "@/layouts/BaseLayout.vue";
 
 Vue.use(VueRouter);
 
@@ -21,8 +21,21 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    component: BaseLayout,
+    children: [
+      {
+        path: "/",
+        name: "home",
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/views/Home/Home.vue"),
+      },
+      {
+        path: "/staff",
+        name: "staff",
+        component: () =>
+          import(/* webpackChunkName: "staff" */ "@/views/Staff/Staff.vue"),
+      },
+    ],
   },
 ];
 

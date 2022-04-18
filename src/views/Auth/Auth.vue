@@ -23,7 +23,7 @@ export default {
   methods: {
     submit(data) {
       if (data.login == "admin" && data.password == "admin") {
-        console.log("success");
+        this.$router.push({ name: "home" });
       } else {
         this.error = "Authorization error!";
       }
