@@ -189,12 +189,12 @@ export default {
     }
 
     &:hover {
-      box-shadow: 0px 0px 4px rgba(147, 112, 176, 0.5);
+      box-shadow: $box-shadow-base;
     }
 
     &:focus, &:active {
       border: 1px solid $color-purple.base;
-      box-shadow: 0px 0px 4px rgba(147, 112, 176, 0.5);
+      box-shadow: $box-shadow-base;
     }
 
     &:disabled {

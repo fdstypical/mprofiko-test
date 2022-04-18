@@ -148,7 +148,7 @@ $bb-colors-primary = {
   hover: $theme-primary.hover,
   loader: $color-gray.light,
   active-loader: $color-gray.light,
-  box-shadow: 0px 0px 4px rgba(128, 0, 128, 0.5),
+  box-shadow: $box-shadow-alternative,
 }
 
 $bb-colors-secondary = {

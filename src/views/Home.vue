@@ -28,10 +28,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
+<script>
+export default {
   name: "Home",
 
   data() {
@@ -40,5 +38,5 @@ export default Vue.extend({
       show: false,
     };
   },
-});
+};
 </script>
