@@ -1,0 +1,14 @@
+fontPaths($font){
+  src: url($fonts-path+$font+'.ttf') format("truetype");
+}
+
+if $use-fonts {
+  for key, $font in $fonts-arr {
+    @font-face {
+      font-family: unquote($font.name);
+      fontPaths($font.file);
+      font-weight: $font.weight;
+      font-style: $font.style;
+    }
+  }
+}

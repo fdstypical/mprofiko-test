@@ -1,0 +1,93 @@
+$ns = 'fo';
+
+// ======================================================
+// COLOR-THEMES
+// ======================================================
+@import './colors.styl';
+
+$theme-dark = {
+  base: $color-dark.base,
+  contrast: $color-light.base,
+}
+
+$theme-light = {
+  base: $color-light.base,
+  contrast: $color-dark.base,
+}
+
+$theme-primary = {
+  base: $color-lilac.base,
+  contrast: $color-light.base,
+  complement: $color-light.base,
+  hover: $color-lilac.dark
+}
+
+$theme-secondary = {
+  base: $color-gray.base,
+  contrast: $color-light.base,
+  complement: $color-dark.base,
+}
+
+$themes-tree = {
+  dark: $theme-dark,
+  light: $theme-light,
+  primary: $theme-primary,
+  secondary: $theme-secondary,
+}
+
+// ======================================================
+// FONTS
+// ======================================================
+$font-base = Manrope, --apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Verdana, sans-serif
+
+// if ($use-fonts) import custom fonts
+$use-fonts = true;
+@import './fonts.styl';
+
+// sizes
+// $font-size-{size}
+$font-size = 16px;
+$font-size-small-xs = 8px;
+$font-size-small-s = 10px;
+$font-size-small = 12px;
+$font-size-base = 14px;
+$font-size-medium-s = 16px;
+$font-size-medium = 18px;
+$font-size-medium-x = 20px;
+$font-size-medium-alt = 24px;
+$font-size-large = 40px;
+$font-size-large-x = 45px;
+
+// other
+$border-radius-base = 5px;
+$border-radius-big = 20px;
+$border-radius-large = 45px;
+$border-radius-small = 6px;
+
+$box-shadow-base = 0px 1px 20px rgba(81, 89, 109, 0.147597);
+$box-shadow-base--hover = 3px 5px 25px rgba(81, 89, 109, 0.147597);
+
+// ======================================================
+// BREAKPOINTS
+// ======================================================
+$breakpoints := {
+  xs: 0,
+  ms: 25rem,   // 400px
+  sm: 48rem,   // 768px
+  md: 64rem,   // 1024px
+  lg: 80rem,   // 1280px
+  xl: 100rem,  // 1600px
+}
+@import './breakpoints.styl';
+
+// ======================================================
+// LAYOUT SETTINGS
+// ======================================================
+$container-max = 73.125rem;
+$header-height = 60px;
+$unit = 0.25rem;
+$gutter = 4 * $unit;
+$gutter-ms = $gutter / 2;
+$gutter-sm = 1.5rem;
+$gutter-md = 2rem;
+$gutter-outside-lg = 11 * $unit;

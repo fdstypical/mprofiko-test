@@ -19,6 +19,15 @@ module.exports = {
   },
   overrides: [
     {
+      files: ["*.vue"],
+      rules: {
+        indent: "off",
+        "vue/script-indent": ["error", 2, { baseIndent: 0, switchCase: 1 }],
+        "vue/html-indent": ["error", 2, { baseIndent: 1 }],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+      },
+    },
+    {
       files: [
         "**/__tests__/*.{j,t}s?(x)",
         "**/tests/unit/**/*.spec.{j,t}s?(x)",

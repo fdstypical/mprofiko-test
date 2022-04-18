@@ -1,0 +1,125 @@
+@require '~@/assets/stylus/vars/variables';
+
+h1, h2, h3, h4, h5, h6 {
+  font: inherit;
+  margin: 0;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+@require '../vars/variables';
+
+.{$ns}-heading {
+  color: $color-dark.base;
+  letter-spacing: 0.15px;
+  font-weight: 700;
+
+  &--1 {
+    font-size: $font-size-medium-x;
+    line-height: 1.6;
+  }
+  &--2 {
+    font-size: $font-size-medium;
+    line-height: 1.33;
+  }
+  &--3 {
+    font-size: $font-size-medium;
+    line-height: 1.33;
+  }
+  &--4 {
+    font-size: $font-size-medium;
+    line-height: 1.33;
+  }
+  &--5 {
+    font-size: $font-size-medium-s;
+    line-height: 1.6;
+  }
+  &--6 {
+    font-size: $font-size-base;
+    line-height: 1.7;
+  }
+}
+
+.{$ns}-text {
+  color: $color-gray.base;
+  letter-spacing: 0.12px;
+
+  &--large {
+    font-size: $font-size-medium-x;
+    line-height: 1.5;
+  }
+  &--medium {
+    font-size: $font-size-medium;
+    line-height: 2;
+  }
+  &--base {
+    font-size: $font-size-medium-s
+    line-height: 1.5;
+  }
+  &--small {
+    font-size: $font-size-base;
+    line-height: 1.7;
+  }
+}
+
+p {
+  margin: 1.25rem 0;
+}
+
+.{$ns}-blockquote {
+  margin: 2rem 0;
+  padding-left: 1rem;
+  border-left 2px solid currentColor;
+  font-size: $font-size-medium-s;
+  line-height: 2;
+
+  > p {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.{$ns}-text-link {
+  display: inline;
+  font-size: inherit;
+  color: $theme-primary.base;
+  vertical-align: baseline;
+  word-break: break-word;
+  transition: color 0.3s;
+
+  [class*=theme_light] &:hover {
+    color: darken($theme-primary.base, 10%);
+  }
+  [class*=theme_dark] &:hover {
+    color: lighten($theme-primary.base, 10%);
+  }
+
+  &:visited {
+    color: $theme-primary.base;
+  }
+}
+
+.{$ns}-ul,
+.{$ns}-ol {
+  padding-left: 1.25rem;
+}
+
+.{$ns}-hr {
+  color: $theme-secondary.base;
+  margin: 1.875rem auto;
+  margin-left: 0;
+  max-width: 75%;
+  border: 1px solid currentColor;
+  border-width: 1px 0 0 0;
+  opacity: 0.5;
+}
+
+.{$ns}-rub {
+  color: $color-dark.base;
+
+  &::after {
+    content: '\a0\20BD';
+  }
+}
