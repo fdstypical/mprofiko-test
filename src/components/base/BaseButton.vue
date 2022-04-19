@@ -52,6 +52,11 @@ export default {
       default: "rounded",
       validator: (value) => ["square", "circle", "rounded"].includes(value),
     },
+    align: {
+      type: String,
+      default: "center",
+      validator: (value) => ["left", "center", "right"].includes(value),
+    },
     dense: {
       type: Boolean,
       default: false,
@@ -85,6 +90,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    bold: {
+      type: Boolean,
+      default: true,
+    },
     plain: {
       type: Boolean,
       default: false,
@@ -111,12 +120,15 @@ export default {
         [`${prefix}--color_${this.color}`]: this.color,
         [`${prefix}--size_${this.size}`]: this.size,
         [`${prefix}--shape_${this.shape}`]: this.shape,
+        [`${prefix}--align_${this.align}`]: this.align,
         loading: this.loading,
         dense: this.dense,
         reverse: this.reverse,
         wide: this.wide,
         shadow: this.shadow,
         plain: this.plain,
+        bold: this.bold,
+        ["has-icon"]: this.icon && (this.title || this.$slots.default),
         ["only-icon"]: this.icon && !this.title && !this.$slots.default,
       };
     },
@@ -273,6 +285,22 @@ $bb-sizes-tree = {
     pointer-events: none;
     transition: inherit;
 
+    ^[0]--align_left & {
+      justify-content: flex-start;
+
+      ^[0].has-icon& {
+        justify-content: space-between;
+      }
+    }
+
+    ^[0]--align_right & {
+      justify-content: flex-end;
+
+      ^[0].has-icon& {
+        justify-content: space-between;
+      }
+    }
+
     ^[0].loading & {
       opacity: 0;
     }
@@ -283,9 +311,13 @@ $bb-sizes-tree = {
   }
 
   &__text {
-    font-weight: 700;
+    font-weight: 400;
     pointer-events: none;
     transition: none;
+
+    ^[0].bold & {
+      font-weight: 700;
+    }
 
     ^[0]__icon + & {
       margin-left: 6px;

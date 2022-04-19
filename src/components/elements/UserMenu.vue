@@ -1,16 +1,13 @@
 <template>
-  <div
-    class="user-menu"
-    :class="classes"
-    :aria-disabled="disabled"
-    @click="toggle"
-  >
-    <div class="user-menu__user">
-      <span class="mp-text mp-text--small">{{ name }}</span>
-    </div>
+  <div class="user-menu" :class="classes" :aria-disabled="disabled">
+    <div class="user-menu__menu" @click="toggle">
+      <div class="user-menu__user">
+        <span class="mp-text mp-text--small">{{ name }}</span>
+      </div>
 
-    <div class="user-menu__icon-wrapper" :style="iconStyles">
-      <svg-icon name="arrow" class="user-menu__icon" />
+      <div class="user-menu__icon-wrapper" :style="iconStyles">
+        <svg-icon name="arrow" class="user-menu__icon" />
+      </div>
     </div>
 
     <transition name="fade">
@@ -70,8 +67,11 @@ export default {
 .user-menu {
   width: 100%;
   relative();
-  flexy(flex-start, center);
-  cursor: pointer;
+
+  &__menu {
+    flexy(flex-start, center);
+    cursor: pointer;
+  }
 
   &__user {
     margin-right: 6px;

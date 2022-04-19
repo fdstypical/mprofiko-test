@@ -5,10 +5,18 @@
       theme="plain"
       shape="square"
       size="small"
+      align="left"
       wide
     />
     <div class="dropdown__hr" />
-    <base-button title="Выход" theme="plain" shape="square" size="small" wide />
+    <base-button
+      title="Выход"
+      theme="plain"
+      shape="square"
+      size="small"
+      align="left"
+      wide
+    />
   </div>
 </template>
 
@@ -23,7 +31,8 @@ export default {
 @require '~@/assets/stylus/mixins/mixins';
 
 .dropdown {
-  max-width: 130px;
+  max-width: 150px;
+  min-width: 130px;
   display: block;
   padding: 4px 0px;
   background-color: $color-light.base;
