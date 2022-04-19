@@ -1,5 +1,10 @@
 <template>
-  <div class="user-menu" @click="toggle">
+  <div
+    class="user-menu"
+    :class="classes"
+    :aria-disabled="disabled"
+    @click="toggle"
+  >
     <div class="user-menu__user">
       <span class="mp-text mp-text--small">{{ name }}</span>
     </div>
@@ -19,6 +24,10 @@ export default {
       type: String,
       default: null,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
@@ -28,6 +37,11 @@ export default {
   },
 
   computed: {
+    classes() {
+      return {
+        disabled: this.disabled,
+      };
+    },
     iconStyles() {
       return {
         transform: `rotate(${this.show ? "180deg" : "0deg"})`,
@@ -37,7 +51,9 @@ export default {
 
   methods: {
     toggle() {
-      this.show = !this.show;
+      if (!this.disabled) {
+        this.show = !this.show;
+      }
     },
   },
 };
@@ -62,6 +78,10 @@ export default {
 
   &__icon {
     font-size: $font-size-small-s;
+  }
+
+  &.disabled {
+    opacity: 0.5;
   }
 }
 </style>
