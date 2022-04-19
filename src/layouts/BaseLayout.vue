@@ -10,7 +10,9 @@
           <main-nav />
         </template>
 
-        <template #end>789</template>
+        <template #end>
+          <user-menu name="denis_kaneev" />
+        </template>
       </main-header>
     </div>
     <main class="base-layout__main l-container" role="main">

@@ -7,14 +7,15 @@ import MainLogo from "@/components/MainLogo.vue";
 import MainNav from "@/components/MainNav.vue";
 
 // base
-import BaseButton from "./base/BaseButton.vue";
-import BaseInput from "./base/BaseInput.vue";
+import BaseButton from "@/components/base/BaseButton.vue";
+import BaseInput from "@/components/base/BaseInput.vue";
 
 // elements
-import BaseLoader from "./elements/BaseLoader.vue";
+import BaseLoader from "@/components/elements/BaseLoader.vue";
+import UserMenu from "@/components/elements/UserMenu.vue";
 
 // wrappers
-import PasswordedInput from "./wrappers/PasswordedInput.vue";
+import PasswordedInput from "@/components/wrappers/PasswordedInput.vue";
 
 Vue.component("svg-icon", SvgIcon);
 Vue.component("main-header", MainHeader);
@@ -23,4 +24,5 @@ Vue.component("main-nav", MainNav);
 Vue.component("base-button", BaseButton);
 Vue.component("base-input", BaseInput);
 Vue.component("base-loader", BaseLoader);
+Vue.component("user-menu", UserMenu);
 Vue.component("passworded-input", PasswordedInput);
