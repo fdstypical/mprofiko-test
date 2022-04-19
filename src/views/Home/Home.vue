@@ -1,9 +1,5 @@
 <template>
-  <div class="home">
-    <base-button title="Войти" />
-
-    <dropdown />
-  </div>
+  <div class="home">Home</div>
 </template>
 
 <script>
