@@ -15,6 +15,7 @@ import BaseLoader from "@/components/elements/BaseLoader.vue";
 import UserMenu from "@/components/elements/UserMenu.vue";
 import Dropdown from "@/components/elements/Dropdown.vue";
 import Number from "@/components/elements/Number.vue";
+import BaseTable from "@/components/elements/BaseTable.vue";
 
 // wrappers
 import PasswordedInput from "@/components/wrappers/PasswordedInput.vue";
@@ -29,4 +30,5 @@ Vue.component("base-loader", BaseLoader);
 Vue.component("user-menu", UserMenu);
 Vue.component("dropdown", Dropdown);
 Vue.component("number", Number);
+Vue.component("base-table", BaseTable);
 Vue.component("passworded-input", PasswordedInput);

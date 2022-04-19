@@ -1,5 +1,5 @@
 <template>
-  <div class="number">
+  <div class="number" :class="classes">
     <span class="number__text">{{ num }}</span>
   </div>
 </template>
