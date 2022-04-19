@@ -1,0 +1,40 @@
+<template>
+  <div class="dropdown">
+    <base-button
+      title="Настройки"
+      theme="plain"
+      shape="square"
+      size="small"
+      wide
+    />
+    <div class="dropdown__hr" />
+    <base-button title="Выход" theme="plain" shape="square" size="small" wide />
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Dropdown",
+};
+</script>
+
+<style lang="stylus" scoped>
+@require '~@/assets/stylus/vars/variables';
+@require '~@/assets/stylus/mixins/mixins';
+
+.dropdown {
+  max-width: 130px;
+  display: block;
+  padding: 4px 0px;
+  background-color: $color-light.base;
+  border-radius: $border-radius-base;
+  box-shadow: 0px 0px 4px rgba(50, 38, 51, 0.25);
+
+  &__hr {
+    width: 100%;
+    height: 1px;
+    background-color: $color-gray.base;
+    margin: 4px 0px;
+  }
+}
+</style>

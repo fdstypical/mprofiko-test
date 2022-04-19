@@ -12,6 +12,10 @@
     <div class="user-menu__icon-wrapper" :style="iconStyles">
       <svg-icon name="arrow" class="user-menu__icon" />
     </div>
+
+    <transition name="fade">
+      <dropdown v-if="show" class="user-menu__dropdown" />
+    </transition>
   </div>
 </template>
 
@@ -65,6 +69,7 @@ export default {
 
 .user-menu {
   width: 100%;
+  relative();
   flexy(flex-start, center);
   cursor: pointer;
 
@@ -78,6 +83,10 @@ export default {
 
   &__icon {
     font-size: $font-size-small-s;
+  }
+
+  &__dropdown {
+    absolute(30px, false, false, 0px);
   }
 
   &.disabled {
