@@ -3,10 +3,10 @@
     <thead>
       <tr>
         <th
-          v-for="(item, i) in fields"
+          v-for="(item, i) in headers"
           :key="i"
-          :rowspan="item.childs ? 1 : 2"
-          :colspan="item.childs ? item.childs.length : 1"
+          :rowspan="item.rowspan"
+          :colspan="item.colspan"
         >
           {{ item.label }}
         </th>
@@ -17,9 +17,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(row, i) in items" :key="i">
-        <td v-for="(item, i) in getItemInRow(row)" :key="i">
-          <slot :name="item.value" :[item.value]="item">{{ item.label }}</slot>
+      <tr v-for="(row, i) in flattenItems" :key="i">
+        <td v-for="(item, i) in flattenHeaders" :key="i">
+          <slot :name="item.value" :[item.value]="row[item.value]">
+            {{ row[item.value] }}
+          </slot>
         </td>
       </tr>
     </tbody>
@@ -42,23 +44,38 @@ export default {
   },
 
   computed: {
+    headers() {
+      return this.fields.map((item) => ({
+        ...item,
+        rowspan: item.childs ? 1 : 2,
+        colspan: item.childs?.length || 1,
+      }));
+    },
     subheaders() {
       return this.fields.reduce(
         (acc, curr) => [...acc, ...(curr.childs || [])],
         []
       );
     },
-  },
-
-  methods: {
-    getItemInRow(row) {
-      return Object.entries(row).reduce((acc, [key, value]) => {
-        if (typeof value === "object" && value !== null && value.childs) {
-          return [...acc, ...this.getItemInRow(value.childs)];
+    flattenHeaders() {
+      return this.fields.reduce((acc, curr) => {
+        if (curr.childs) {
+          return [...acc, ...curr.childs];
         } else {
-          return [...acc, { label: value, value: key }];
+          return [...acc, curr];
         }
       }, []);
+    },
+    flattenItems() {
+      return this.items.map((row) =>
+        Object.entries(row).reduce((acc, [key, value]) => {
+          if (value?.childs) {
+            return { ...acc, ...value.childs };
+          } else {
+            return { ...acc, [key]: value };
+          }
+        }, {})
+      );
     },
   },
 };

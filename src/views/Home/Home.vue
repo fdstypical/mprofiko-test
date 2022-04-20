@@ -3,54 +3,54 @@
     <base-table :fields="$options.fields" :items="$options.items">
       <template #newData="{ newData }">
         <number
-          :num="newData.label"
-          :disabled="newData.label == 0"
+          :num="newData"
+          :disabled="newData == 0"
           class="home__number-item"
         />
       </template>
 
       <template #primaryActual="{ primaryActual }">
         <number
-          :num="primaryActual.label"
-          :disabled="primaryActual.label == 0"
+          :num="primaryActual"
+          :disabled="primaryActual == 0"
           class="home__number-item"
         />
       </template>
 
       <template #primaryOld="{ primaryOld }">
         <number
-          :num="primaryOld.label"
-          :disabled="primaryOld.label == 0"
+          :num="primaryOld"
+          :disabled="primaryOld == 0"
           class="home__number-item"
         />
       </template>
 
       <template #periodicActual="{ periodicActual }">
         <number
-          :num="periodicActual.label"
-          :disabled="periodicActual.label == 0"
+          :num="periodicActual"
+          :disabled="periodicActual == 0"
           class="home__number-item"
         />
       </template>
 
       <template #periodicOld="{ periodicOld }">
         <number
-          :num="periodicOld.label"
-          :disabled="periodicOld.label == 0"
+          :num="periodicOld"
+          :disabled="periodicOld == 0"
           class="home__number-item"
         />
       </template>
 
       <template #incomplete="{ incomplete }">
         <number
-          :num="incomplete.label"
-          :disabled="incomplete.label == 0"
+          :num="incomplete"
+          :disabled="incomplete == 0"
           class="home__number-item"
         />
       </template>
 
       <template #closed="{ closed }">
-        <span class="mp-heading mp-heading--6">{{ closed.label }}</span>
+        <span class="mp-heading mp-heading--6">{{ closed }}</span>
       </template>
     </base-table>
   </div>
