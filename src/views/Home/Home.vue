@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <base-table :fields="$options.fields" :items="$options.items">
+    <base-table
+      v-if="!loading"
+      :fields="$options.fields"
+      :items="$options.items"
+    >
       <template #newData="{ newData }">
         <number
           :num="newData"
@@ -53,12 +57,36 @@
         <span class="mp-heading mp-heading--6">{{ closed }}</span>
       </template>
     </base-table>
+    <base-loader v-else class="home__loader" />
   </div>
 </template>
 
 <script>
+import api from "@/services/api";
+
 export default {
   name: "Home",
+
+  data() {
+    return {
+      loading: false,
+    };
+  },
+
+  mounted() {
+    this.fetchData();
+  },
+
+  methods: {
+    async fetchData() {
+      this.loading = true;
+
+      api.xmlController
+        .get()
+        .then((xml) => console.log(xml))
+        .finally((this.loading = false));
+    },
+  },
 
   fields: [
     {
@@ -139,6 +167,10 @@ export default {
 .home {
   &__number-item {
     margin: 0px auto;
+  }
+
+  &__loader {
+    font-size: 60px;
   }
 }
 </style>

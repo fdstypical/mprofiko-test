@@ -1,0 +1,16 @@
+<tabpane>
+  <tab id="client-tab">
+    <table>
+      <columns>
+      <column id="client-logo" />
+      <column id="new-data" />
+      <column id="actual-primary" />
+      <column id="old-primary" />
+      <column id="actual-periodic" />
+      <column id="old-periodic" />
+      <column id="vaccination-data" />
+      <column id="closed-data" />
+      <columns>
+    </table>
+  </tab>
+</tabpane>
