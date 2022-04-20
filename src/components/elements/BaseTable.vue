@@ -1,5 +1,5 @@
 <template>
-  <table class="base-table">
+  <table class="base-table" cellspacing="0">
     <thead>
       <tr>
         <th
@@ -82,17 +82,30 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@require '~@/assets/stylus/vars/variables';
 
 .base-table {
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
 
-  & td, th {
+  & td {
     text-align: center;
     padding: 5px;
   }
 
   & th {
+    line-height: 0px;
     vertical-align: top;
+  }
+
+  & tbody tr {
+    background: $color-light.base;
+    box-shadow: $box-shadow-dark;
+  }
+
+  & tbody td {
+    padding: 30px 0px;
   }
 }
 </style>

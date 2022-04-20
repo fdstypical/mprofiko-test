@@ -1,6 +1,6 @@
 <template>
-  <div class="number" :class="classes">
-    <span class="number__text">{{ num }}</span>
+  <div class="cheap" :class="classes">
+    <span class="cheap__text">{{ label }}</span>
   </div>
 </template>
 
@@ -8,8 +8,8 @@
 export default {
   name: "Number",
   props: {
-    num: {
-      type: Number,
+    label: {
+      type: [Number, String],
       default: 0,
     },
     disabled: {
@@ -20,7 +20,7 @@ export default {
 
   computed: {
     classes() {
-      const prefix = "number";
+      const prefix = "cheap";
 
       return {
         [`${prefix}--disabled`]: this.disabled,
@@ -34,7 +34,7 @@ export default {
 @require '~@/assets/stylus/vars/variables';
 @require '~@/assets/stylus/mixins/mixins';
 
-.number {
+.cheap {
   display: block;
   size(27px, 39px);
   background-color: $color-lilac.base;

@@ -37,7 +37,7 @@ export default {
   padding: 4px 0px;
   background-color: $color-light.base;
   border-radius: $border-radius-base;
-  box-shadow: 0px 0px 4px rgba(50, 38, 51, 0.25);
+  box-shadow: $box-shadow-dark;
 
   &__hr {
     width: 100%;

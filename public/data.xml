@@ -1,16 +1,57 @@
+<?xml version = '1.0'?>
 <tabpane>
   <tab id="client-tab">
     <table>
+      <headers>
+        <header id="logo"></header>
+        <header id="newData" data-title="Новые заявки"></header>
+        <header id="primary" data-title="Предварительные">
+          <subheader id="primaryActual" data-title="Актуальные"></subheader>
+          <subheader id="primaryOld" data-title="Просроченные"></subheader>
+        </header>
+        <header id="periodic" data-title="Периодические">
+          <subheader id="periodicActual" data-title="Актуальные"></subheader>
+          <subheader id="periodicOld" data-title="Просроченные"></subheader>
+        </header>
+        <header id="vaccination" data-title="Вакцинация">
+          <subheader id="incomplete" data-title="Незавершенные"></subheader>
+        </header>
+        <header id="closed" data-title="Завершенные"></header>
+      </headers>
+
       <columns>
-      <column id="client-logo" />
-      <column id="new-data" />
-      <column id="actual-primary" />
-      <column id="old-primary" />
-      <column id="actual-periodic" />
-      <column id="old-periodic" />
-      <column id="vaccination-data" />
-      <column id="closed-data" />
+        <column id="logo" data-value="/images/logo1.png"/>
+        <column id="newData" data-value="1" />
+        <column id="primary">
+          <subcolumn id="primaryActual" data-value="8" />
+          <subcolumn id="primaryOld" data-value="10" />
+        </column>
+        <column id="periodic">
+          <subcolumn id="periodicActual" data-value="12" />
+          <subcolumn id="periodicOld" data-value="1" />
+        </column>
+        <column id="vaccination">
+          <subcolumn id="incomplete" data-value="1"/>
+        </column>
+        <column id="closed" data-value="3100" />
+      </columns>
+
       <columns>
+        <column id="logo" data-value="/images/logo2.png"/>
+        <column id="newData" data-value="8" />
+        <column id="primary">
+          <subcolumn id="primaryActual" data-value="5" />
+          <subcolumn id="primaryOld" data-value="0" />
+        </column>
+        <column id="periodic">
+          <subcolumn id="periodicActual" data-value="0" />
+          <subcolumn id="periodicOld" data-value="0" />
+        </column>
+        <column id="vaccination">
+          <subcolumn id="incomplete" data-value="0"/>
+        </column>
+        <column id="closed" data-value="880" />
+      </columns>
     </table>
   </tab>
 </tabpane>
