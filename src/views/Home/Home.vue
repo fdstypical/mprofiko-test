@@ -6,7 +6,7 @@
       :items="table.rows"
     >
       <template #logo="{ logo }">
-        <img :src="logo" class="home__company-logo" />
+        <base-image :src="logo" />
       </template>
 
       <template #newData="{ newData }">
@@ -58,9 +58,10 @@
       </template>
 
       <template #closed="{ closed }">
-        <span class="mp-heading mp-heading--6">{{ closed }}</span>
+        <bold-text :text="closed" />
       </template>
     </base-table>
+
     <base-loader v-else class="home__loader" />
   </div>
 </template>

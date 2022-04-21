@@ -109,7 +109,7 @@ export default class XmlParser {
     const root = doc.getElementById("client-tab");
     const table = root?.getElementsByTagName("table")[0];
 
-    if (table) {
+    if (root && table) {
       this.parseHeaders(table);
       this.parseRows(table);
     } else {
