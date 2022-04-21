@@ -53,5 +53,16 @@
         <column id="closed" data-value="880" />
       </columns>
     </table>
+
+    <strategies>
+      <strategy id="logo" data-name="base-image" />
+      <strategy id="newData" data-name="cheap" />
+      <strategy id="primaryActual" data-name="cheap" />
+      <strategy id="primaryOld" data-name="cheap" />
+      <strategy id="periodicActual" data-name="cheap" />
+      <strategy id="periodicOld" data-name="cheap" />
+      <strategy id="incomplete" data-name="cheap" />
+      <strategy id="closed" data-name="bold-text" />
+    </strategies>
   </tab>
 </tabpane>

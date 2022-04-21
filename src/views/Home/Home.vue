@@ -5,60 +5,18 @@
       :fields="table.headers"
       :items="table.rows"
     >
-      <template #logo="{ logo }">
-        <base-image :src="logo" />
-      </template>
-
-      <template #newData="{ newData }">
-        <cheap
-          :label="newData"
-          :disabled="newData == 0"
-          class="home__cheap-item"
+      <template
+        v-for="(item, i) in table.strategies"
+        v-slot:[item.forField]="data"
+      >
+        <component
+          :is="item.strategyName"
+          :src="data[item.forField]"
+          :label="data[item.forField]"
+          :text="data[item.forField]"
+          :key="i"
+          class="home__td-item"
         />
-      </template>
-
-      <template #primaryActual="{ primaryActual }">
-        <cheap
-          :label="primaryActual"
-          :disabled="primaryActual == 0"
-          class="home__cheap-item"
-        />
-      </template>
-
-      <template #primaryOld="{ primaryOld }">
-        <cheap
-          :label="primaryOld"
-          :disabled="primaryOld == 0"
-          class="home__cheap-item"
-        />
-      </template>
-
-      <template #periodicActual="{ periodicActual }">
-        <cheap
-          :label="periodicActual"
-          :disabled="periodicActual == 0"
-          class="home__cheap-item"
-        />
-      </template>
-
-      <template #periodicOld="{ periodicOld }">
-        <cheap
-          :label="periodicOld"
-          :disabled="periodicOld == 0"
-          class="home__cheap-item"
-        />
-      </template>
-
-      <template #incomplete="{ incomplete }">
-        <cheap
-          :label="incomplete"
-          :disabled="incomplete == 0"
-          class="home__cheap-item"
-        />
-      </template>
-
-      <template #closed="{ closed }">
-        <bold-text :text="closed" />
       </template>
     </base-table>
 
@@ -103,7 +61,7 @@ export default {
 
 <style lang="stylus" scoped>
 .home {
-  &__cheap-item {
+  &__td-item {
     margin: 0px auto;
   }
 

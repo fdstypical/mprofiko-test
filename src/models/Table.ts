@@ -1,3 +1,5 @@
+import { Strategy } from "@/models/Strategy";
+
 export interface TableHeaderNode {
   label: string;
   value: string | number;
@@ -15,4 +17,5 @@ export interface TableRowNode {
 export interface Table {
   headers: TableHeaderNode[];
   rows: TableRowNode[];
+  strategies: Strategy[];
 }

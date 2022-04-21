@@ -4,12 +4,14 @@ import {
   TableRowNode,
   TableRowNodeChilds,
 } from "@/models/Table";
+import { Strategy } from "@/models/Strategy";
 
 export default class XmlParser {
   protected xml: string;
   protected parser: DOMParser;
   protected headers: TableHeaderNode[] = [];
   protected rows: TableRowNode[] = [];
+  protected strategies: Strategy[] = [];
 
   constructor(xml: string) {
     this.xml = xml;
@@ -96,10 +98,22 @@ export default class XmlParser {
     return rowNode;
   }
 
+  protected parseStrategies(root: HTMLElement): void {
+    const strategies = root.getElementsByTagName("strategy");
+
+    for (const strategy of strategies) {
+      const forField = strategy.getAttribute("id") || "";
+      const strategyName = strategy.getAttribute("data-name") || "";
+
+      this.strategies.push({ forField, strategyName });
+    }
+  }
+
   public get GetTable(): Table {
     return {
       headers: this.headers,
       rows: this.rows,
+      strategies: this.strategies,
     };
   }
 
@@ -112,6 +126,7 @@ export default class XmlParser {
     if (root && table) {
       this.parseHeaders(table);
       this.parseRows(table);
+      this.parseStrategies(root);
     } else {
       throw Error("Error during parsing table headers");
     }
